@@ -1,6 +1,7 @@
 package com.example.nankaiming.coolweather.util;
 
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.example.nankaiming.coolweather.db.City;
 import com.example.nankaiming.coolweather.db.County;
@@ -22,7 +23,7 @@ public class Utility {
 				for(int i = 0; i < allProvince.length(); i++){
 					JSONObject provinceObject = allProvince.getJSONObject(i);
 					Province province = new Province();
-					province.setId(provinceObject.getInt("id"));
+					province.setProvinceCode(provinceObject.getInt("id"));
 					province.setProvinceName(provinceObject.getString("name"));
 					province.save();
 				}
@@ -40,7 +41,7 @@ public class Utility {
 				for(int i = 0; i < allCity.length(); i++){
 					JSONObject cityObject = allCity.getJSONObject(i);
 					City city = new City();
-					city.setCityId(cityObject.getInt("id"));
+					city.setCityCode(cityObject.getInt("id"));
 					city.setCityName(cityObject.getString("name"));
 					city.setProvinceId(provinceId);
 					city.save();
