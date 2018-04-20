@@ -4,12 +4,14 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
+	android:background="@color/colorPrimary"
 	tools:context="com.example.nankaiming.coolweather.MainActivity">
 
 	<fragment
 		android:id="@+id/choose_area_fragment"
-		android:name="ChooseAreaFragment"
+		android:name="com.example.nankaiming.coolweather.ChooseAreaFragment"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"/>
+
 
 </FrameLayout>

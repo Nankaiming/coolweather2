@@ -1,8 +1,10 @@
+package com.example.nankaiming.coolweather;
+
 import android.app.Fragment;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +15,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.nankaiming.coolweather.R;
 import com.example.nankaiming.coolweather.db.City;
 import com.example.nankaiming.coolweather.db.County;
 import com.example.nankaiming.coolweather.db.Province;
@@ -78,6 +79,12 @@ public class ChooseAreaFragment extends Fragment {
 				} else if (currentLevel == LEVEL_CITY) {
 					selectedCity = cityList.get(position);
 					queryCounties();
+				}else if(currentLevel == LEVEL_COUNTY) {
+					String weatherId = countyList.get(position).getWeatherId();
+					Intent intent = new Intent(getActivity(), WeatherActivity.class);
+					intent.putExtra("weather_id", weatherId);
+					startActivity(intent);
+					getActivity().finish();
 				}
 			}
 		});
@@ -208,6 +215,7 @@ public class ChooseAreaFragment extends Fragment {
 			}
 			adapter.notifyDataSetChanged();
 			listView.setSelection(0);
+			currentLevel = LEVEL_COUNTY;
 		}else{
 			int provinceCode = selectedProvince.getProvinceCode();
 			int cityCode = selectedCity.getCityCode();
