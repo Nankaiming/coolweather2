@@ -7,6 +7,12 @@
 	android:background="@color/colorPrimary"
 	tools:context="com.example.nankaiming.coolweather.MainActivity">
 
+	<ImageView
+		android:id="@+id/bing_pic_img"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:scaleType="centerCrop"
+		/>
 	<fragment
 		android:id="@+id/choose_area_fragment"
 		android:name="com.example.nankaiming.coolweather.ChooseAreaFragment"
